@@ -80,23 +80,24 @@ public class songArrayList {
 	
 	public void add(Song s){ //add song to correct location in List (Alphabetized)
 		
-		if(songList.isEmpty()){
-			songList.add(s);
-			listModel.addElement(s.getName());
-			return;
+		int i;
+		//find index to add
+		for(i=0; i < songList.size(); i++){
+			if (s.getName().compareTo(songList.get(i).getName()) <= 0) 
+				break;
 		}
-		
-		for(int i=0; i<songList.size(); i++){
-			
-			if(s.getName().compareTo(songList.get(i).getName())<=0){
-				songList.add(i,s);
-				listModel.add(i, s.getName());
-				return;
+		//same song name, sort by artist
+		if(s.getName().compareTo(songList.get(i).getName())==0){
+			if (s.getArtist().compareTo(songList.get(i).getArtist()) > 0){
+				i++;
 			}
 		}
-		
-		songList.add(s);
-		listModel.addElement(s.getName());
+		//add song only if not duplicate
+		if(s.getArtist().compareTo(songList.get(i).getArtist())!=0 && s.getName().compareTo(songList.get(i).getName())!=0){
+			songList.add(i,s);
+			listModel.add(i, s.getName());
+		}
 
 	}
+	
 }
