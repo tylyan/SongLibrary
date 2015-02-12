@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 
 /* song storage + read/write to text file*/
@@ -16,6 +17,7 @@ public class songArrayList{
 	private DefaultListModel<String> listModel = new DefaultListModel<String>();
 	private File songFile;
 	ArrayList<Song> songList = new ArrayList<Song>();
+	JScrollPane scrollPane = new JScrollPane();
 	
 	public songArrayList(){
 		
@@ -76,7 +78,8 @@ public class songArrayList{
 		mainList = new JList<String>(listModel);
 		mainList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		mainList.setLayoutOrientation(JList.VERTICAL);
-		
+		mainList.setSelectedIndex(0);
+		scrollPane.setViewportView(mainList);
 	}
 	
 	
