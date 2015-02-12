@@ -7,9 +7,6 @@ import java.util.Scanner;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-
 
 /* song storage + read/write to text file*/
 

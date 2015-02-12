@@ -15,3 +15,18 @@ Animals|Hello
 Lose Myself|Eminem
 LRAD|Knife Party||2012
 Waiting|Dash Berlin|New Daylight
+Papercut|Linkin Park
+Hello|Evanesence
+Lithium|Evanesence
+Wake Me Up|Evanesence
+Ready|Spongebob
+CS213|Computer Science
+Style|Taylor Swift
+Baby|Justin Bieber
+Shake it off|Taylor Swift
+1989|Taylor Swift
+Teardrops on my Guitar|Taylor Swift
+Blank Space|Taylor Swift
+Boyfriend|Justin Bieber
+Jealous|Nick Jonas
+Superbass|Niki Minaj

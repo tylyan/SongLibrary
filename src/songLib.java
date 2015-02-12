@@ -1,18 +1,23 @@
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.swing.*;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 
 
 
 public class songLib extends JFrame implements ActionListener{
 	
-	JPanel listPanel = new JPanel();
-	JPanel detailPanel = new JPanel();
-	JPanel editPanel = new JPanel();
-	JPanel statusPanel = new JPanel();
-	JLabel songs, description, userEdit;
+	public static JPanel listPanel = new JPanel();
+	public static JPanel detailPanel = new JPanel();
+	public static JPanel editPanel = new JPanel();
+	public static JPanel statusPanel = new JPanel();
+	public static JLabel songs, description, userEdit;
 	songArrayList sL = new songArrayList();
 
 
@@ -36,8 +41,21 @@ public class songLib extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) 
 			throws IOException{
-		songLib mainWindow= new songLib("My Library");
-		
+		JFrame mainWindow= new songLib("My Library");
+		mainWindow.setLayout(new FlowLayout());
+		mainWindow.setResizable(false);
+		mainWindow.add(listPanel);
+		mainWindow.add(detailPanel);
+		mainWindow.add(editPanel);
+		mainWindow.add(statusPanel);
+
+		mainWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		mainWindow.setSize(350, 500);
+		mainWindow.setLocationRelativeTo(null);
+		listPanel.setPreferredSize(new Dimension(150, 480));
+		listPanel.setSize(new Dimension(150, 480));
+		mainWindow.setVisible(true);
+		;
 		
 	};
 
