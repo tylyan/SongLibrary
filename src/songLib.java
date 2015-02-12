@@ -55,7 +55,6 @@ public class songLib extends JFrame implements ActionListener{
 		listPanel.setPreferredSize(new Dimension(150, 480));
 		listPanel.setSize(new Dimension(150, 480));
 		mainWindow.setVisible(true);
-		;
 		
 	};
 
