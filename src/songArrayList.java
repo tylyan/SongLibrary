@@ -1,13 +1,20 @@
-import java.util.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
 
 /* song storage + read/write to text file*/
 
 public class songArrayList {
 	
+	JList<String> mainList = new JList<String>();
+	private DefaultListModel<String> listModel = new DefaultListModel<String>();
 	private File songFile;
 	ArrayList<Song> songList = new ArrayList<Song>();
 	
@@ -64,14 +71,18 @@ public class songArrayList {
 		}
 		
 		sc.close();
-		
+		mainList = new JList<String>(listModel);
+		mainList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+		mainList.setLayoutOrientation(JList.VERTICAL);
 		
 	}
+	
 	
 	public void add(Song s){ //add song to correct location in List (Alphabetized)
 		
 		if(songList.isEmpty()){
 			songList.add(s);
+			listModel.addElement(s.getName());
 			return;
 		}
 		
@@ -79,11 +90,13 @@ public class songArrayList {
 			
 			if(s.getName().compareTo(songList.get(i).getName())<=0){
 				songList.add(i,s);
+				listModel.add(i, s.getName());
 				return;
 			}
 		}
 		
 		songList.add(s);
+		listModel.addElement(s.getName());
 
 	}
 }
