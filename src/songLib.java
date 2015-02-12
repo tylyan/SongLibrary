@@ -18,6 +18,7 @@ public class songLib extends JFrame implements ActionListener{
 	public static JPanel editPanel = new JPanel();
 	public static JPanel statusPanel = new JPanel();
 	public static JLabel songs, description, userEdit;
+	public static JLabel songLabel, artistLabel, albumLabel, yearLabel;
 	songArrayList sL = new songArrayList();
 
 
@@ -25,11 +26,30 @@ public class songLib extends JFrame implements ActionListener{
 		super(title);
 		sL.load("songs.txt");
 		listpanel();
+		detailpanel();
 		
 	}
 	
 	public void listpanel(){
-		listPanel.add(sL.mainList);
+		songs = new JLabel("Songs");
+		songs.setOpaque(true);
+		listPanel.add(songs);
+		listPanel.add(sL.scrollPane);
+	}
+	
+	public void detailpanel(){
+		
+		Song selected_song = sL.getSong(sL.mainList.getSelectedIndex());
+		songLabel = new JLabel("Song:");
+		artistLabel = new JLabel("Artist:");
+		albumLabel = new JLabel("Album: ");
+		yearLabel = new JLabel("Year: ");
+		detailPanel.add(songLabel);
+		detailPanel.add(artistLabel);
+		detailPanel.add(albumLabel);
+		detailPanel.add(yearLabel);
+		
+		
 	}
 	
 	
