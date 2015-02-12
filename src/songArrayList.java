@@ -7,13 +7,15 @@ import java.util.Scanner;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 
 /* song storage + read/write to text file*/
 
-public class songArrayList {
+public class songArrayList{
 	
-	JList<String> mainList = new JList<String>();
+	public JList<String> mainList = new JList<String>();
 	private DefaultListModel<String> listModel = new DefaultListModel<String>();
 	private File songFile;
 	ArrayList<Song> songList = new ArrayList<Song>();
@@ -41,8 +43,8 @@ public class songArrayList {
 		
 	}
 	
-	public void load() throws IOException{ // load songs from text into array list
-		this.songFile = new File("songs.txt");
+	public void load(String file) throws IOException{ // load songs from text into array list
+		this.songFile = new File(file);
 		Scanner sc = new Scanner(songFile);
 		
 		while(sc.hasNextLine()){
@@ -54,20 +56,23 @@ public class songArrayList {
 			
 			song.setName(name);
 			song.setArtist(artist);
-					
-			if(line[2]!= ""){
+			
+			if (line.length == 3){
 				String album = line[2];
 				song.setAlbum(album);
+				
 			}
 			
-			if(line[3]!= ""){
+			if(line.length == 4){
 				String year = line[3];
 				song.setYear(year);
 			}
 			
 			
 			add(song);
-			
+		}
+		for (int i = 0; i < songList.size(); i++){
+			System.out.println(songList.get(i).getName() + " by " + songList.get(i).getArtist());
 		}
 		
 		sc.close();
@@ -80,24 +85,34 @@ public class songArrayList {
 	
 	public void add(Song s){ //add song to correct location in List (Alphabetized)
 		
-		int i;
+		int i = 0;
+		
 		//find index to add
 		for(i=0; i < songList.size(); i++){
 			if (s.getName().compareTo(songList.get(i).getName()) <= 0) 
 				break;
 		}
 		//same song name, sort by artist
-		if(s.getName().compareTo(songList.get(i).getName())==0){
+		if (songList.isEmpty()){
+			songList.add(s);
+			listModel.add(i, s.getName());
+		}else if (i == songList.size()){
+			songList.add(s);
+			listModel.add(i, s.getName());
+		}else if(s.getName().compareTo(songList.get(i).getName())==0){
 			if (s.getArtist().compareTo(songList.get(i).getArtist()) > 0){
 				i++;
 			}
 		}
 		//add song only if not duplicate
-		if(s.getArtist().compareTo(songList.get(i).getArtist())!=0 && s.getName().compareTo(songList.get(i).getName())!=0){
+		if(!(s.getArtist().compareTo(songList.get(i).getArtist())==0 && s.getName().compareTo(songList.get(i).getName())==0)){
 			songList.add(i,s);
 			listModel.add(i, s.getName());
 		}
-
 	}
 	
+	//returns song information via index number
+	public Song getSong(int index){
+		return songList.get(index);
+	}
 }

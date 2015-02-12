@@ -8,24 +8,23 @@ import javax.swing.*;
 
 public class songLib extends JFrame implements ActionListener{
 	
-	JPanel listPanel, detailPanel, editPanel, statusPanel;
+	JPanel listPanel = new JPanel();
+	JPanel detailPanel = new JPanel();
+	JPanel editPanel = new JPanel();
+	JPanel statusPanel = new JPanel();
 	JLabel songs, description, userEdit;
-	JList list;
 	songArrayList sL = new songArrayList();
-	
 
 
 	public songLib(String title) throws IOException  {
 		super(title);
-		sL.load();
+		sL.load("songs.txt");
 		listpanel();
 		
 	}
 	
 	public void listpanel(){
-		JList list = new JList();
-		
-		
+		listPanel.add(sL.mainList);
 	}
 	
 	
@@ -35,9 +34,12 @@ public class songLib extends JFrame implements ActionListener{
 	}
 	
 	
-	public static void main(String[] args){
+	public static void main(String[] args) 
+			throws IOException{
+		songLib mainWindow= new songLib("My Library");
 		
-	}
+		
+	};
 
 }
 
