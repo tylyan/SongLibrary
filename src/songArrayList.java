@@ -94,7 +94,7 @@ public class songArrayList{
 		
 		//find index to add
 		for(i=0; i < songList.size(); i++){
-			if (s.getName().compareTo(songList.get(i).getName()) <= 0) 
+			if (s.getName().toLowerCase().compareTo(songList.get(i).getName().toLowerCase()) <= 0) 
 				break;
 		}
 		//same song name, sort by artist
@@ -108,7 +108,7 @@ public class songArrayList{
 			
 		}
 		//add song only if not duplicate
-		if(!(s.getArtist().compareTo(songList.get(i).getArtist())==0 && s.getName().compareTo(songList.get(i).getName())==0)){
+		if(!(s.getArtist().toLowerCase().compareTo(songList.get(i).getArtist().toLowerCase())==0 && s.getName().toLowerCase().compareTo(songList.get(i).getName().toLowerCase())==0)){
 			songList.add(i,s);
 			listModel.add(i, s.getName());
 		}
@@ -153,8 +153,8 @@ public class songArrayList{
 	public boolean checkDuplicateEdit(Song orig, Song edited){
 		
 		//same name+artist so edit is not in name or artist field
-		if(orig.getName().compareTo(edited.getName())==0){ 
-			if(orig.getArtist().compareTo(edited.getArtist())==0){
+		if(orig.getName().toLowerCase().compareTo(edited.getName().toLowerCase())==0){ 
+			if(orig.getArtist().toLowerCase().compareTo(edited.getArtist().toLowerCase())==0){
 				return false;
 			}
 			

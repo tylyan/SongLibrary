@@ -75,7 +75,7 @@ public class songLib extends JFrame implements ActionListener
 	{
 		songs = new JLabel("Songs");
 		songs.setOpaque(true);
-		sL.scrollPane.setPreferredSize(new Dimension(200,300));
+		sL.scrollPane.setPreferredSize(new Dimension(180,280));
 		listPanel.add(songs);
 		listPanel.add(sL.scrollPane);
 		
@@ -152,8 +152,8 @@ public class songLib extends JFrame implements ActionListener
 		statusPanel.setLayout(new BorderLayout());
 		status.setHorizontalAlignment((int) JLabel.CENTER_ALIGNMENT);
 		statusText.setHorizontalAlignment((int) JLabel.CENTER_ALIGNMENT);
-		statusPanel.add(status, BorderLayout.PAGE_START);
-		statusPanel.add(statusText, BorderLayout.CENTER);
+		statusPanel.add(status, BorderLayout.CENTER);
+		statusPanel.add(statusText, BorderLayout.PAGE_END);
 		
 		
 	}
