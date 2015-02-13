@@ -338,14 +338,19 @@ public class songLib extends JFrame implements ActionListener
 	            //deleted from both arrays
 	            sL.deleteSong(index);
 	            
-	            //update selected song display
-	            sModel.setSelectionInterval(index, index);
-				selectedSong = sL.getSong(index);
+	            //update selected song display if list not empty
+	            if(!sL.songList.isEmpty()){
+		            sModel.setSelectionInterval(index, index);
+					selectedSong = sL.getSong(index);		
+					
+					nameText.setText(selectedSong.getName());
+					artistText.setText(selectedSong.getArtist());
+					albumText.setText(selectedSong.getAlbum());
+					yearText.setText(selectedSong.getYear());
+	            }
+
 				
-				nameText.setText(selectedSong.getName());
-				artistText.setText(selectedSong.getArtist());
-				albumText.setText(selectedSong.getAlbum());
-				yearText.setText(selectedSong.getYear());
+
 	            
 				//disable confirm/cancel
 				confirmButton.setEnabled(false);
@@ -393,8 +398,11 @@ public class songLib extends JFrame implements ActionListener
 	class Selection implements ListSelectionListener
 	{
 		public void valueChanged(ListSelectionEvent e)
-		{
-			displaySelected();
+		{	
+			if(!sL.songList.isEmpty()){
+				displaySelected();
+			}
+			
 		}
 	}
 	

@@ -49,6 +49,9 @@ public class songArrayList{
 	
 	public void load(String file) throws IOException{ // load songs from text into array list
 		this.songFile = new File(file);
+		
+		songFile.createNewFile();
+		
 		Scanner sc = new Scanner(songFile);
 		
 		while(sc.hasNextLine()){
