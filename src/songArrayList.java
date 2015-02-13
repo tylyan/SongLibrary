@@ -67,6 +67,8 @@ public class songArrayList{
 			}
 			
 			if(line.length == 4){
+				String album = line[2];
+				song.setAlbum(album);
 				String year = line[3];
 				song.setYear(year);
 			}

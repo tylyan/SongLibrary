@@ -65,6 +65,7 @@ public class songLib extends JFrame implements ActionListener
 			artistText.setText(sL.getSong(0).getArtist());
 			albumText.setText(sL.getSong(0).getAlbum());
 			yearText.setText(sL.getSong(0).getYear());
+			updateStatus("Curently selected: " + nameText.getText());
 		}
 	}
 	
@@ -395,6 +396,7 @@ public class songLib extends JFrame implements ActionListener
 		public void valueChanged(ListSelectionEvent e)
 		{
 			displaySelected();
+			updateStatus("Currently selected: " + nameText.getText());
 		}
 	}
 	
