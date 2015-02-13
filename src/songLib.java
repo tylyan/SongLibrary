@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -15,7 +16,7 @@ import javax.swing.event.ListSelectionListener;
 
 
 
-public class songLib extends JFrame
+public class songLib extends JFrame implements ActionListener
 {
 	/**
 	 * 
@@ -104,31 +105,55 @@ public class songLib extends JFrame
 		detailPanel.add(cancelButton);
 	}
 	
-	public void attachHandlers(){
-		addButton.setActionCommand("Add");
-		editButton.setActionCommand("Edit");
-		deleteButton.setActionCommand("Delete");
-		okButton.setActionCommand("OK");
-		cancelButton.setActionCommand("Cancel");
+	/**
+	 * Attaches action handler to all the buttons
+	 */
+	public void attachHandlers()
+	{
+		addButton.addActionListener(this);
+		editButton.addActionListener(this);
+		deleteButton.addActionListener(this);
+		okButton.addActionListener(this);
+		cancelButton.addActionListener(this);
 	}
 	
 	/**
 	 * Action Handlers
 	 * @param e
 	 */
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent e)
+	{
+		String action = "";
 		if (e.getActionCommand().equals("Add")){
+			//add stuff
 			System.out.println("add clicked");
+			action = "add";
 			if (!(nameText.equals("") && artistText.equals(""))){
 				Song nS = new Song();
 			}
 		}else if (e.getActionCommand().equals("Edit")){
+			//edit stuff
 			System.out.println("edit clicked");
+			action = "edit";
+			
 		}else if (e.getActionCommand().equals("Delete")){
 			System.out.println("delete clicked");
+			action = "delete";
+			
 		}else if (e.getActionCommand().equals("OK")){
+			//OK button
 			System.out.println("ok clicked");
+			if (action.equals("add")){
+				//actually add stuff
+			}else if (action.equals("edit")){
+				//actually edit stuff
+			}else if (action.equals("delete")){
+				//actually delete stuff
+			}
+			
 		}else{
+			//cancel
+			
 			System.out.println("cancel clicked");
 		}
 		
