@@ -1,9 +1,12 @@
+/*
+ * Yuk Yan
+ * Derek Wong
+ * 
+ */
+
 
 public class Song {
 	
-	//test
-	
-	//test2
 	
 	private String name="";
 	private String artist="";
