@@ -317,6 +317,7 @@ public class songLib extends JFrame implements ActionListener
 	            sL.deleteSong(index);
 	            
 	            //update selected song display
+	            sModel.setSelectionInterval(index, index);
 				selectedSong = sL.getSong(index);
 				
 				nameText.setText(selectedSong.getName());

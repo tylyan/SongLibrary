@@ -107,6 +107,8 @@ public class songArrayList{
 			listModel.add(i, s.getName());
 			
 		}
+		
+		
 		//add song only if not duplicate
 		if(!(s.getArtist().toLowerCase().compareTo(songList.get(i).getArtist().toLowerCase())==0 && s.getName().toLowerCase().compareTo(songList.get(i).getName().toLowerCase())==0)){
 			songList.add(i,s);
