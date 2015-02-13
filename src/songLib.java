@@ -65,6 +65,7 @@ public class songLib extends JFrame implements ActionListener
 			artistText.setText(sL.getSong(0).getArtist());
 			albumText.setText(sL.getSong(0).getAlbum());
 			yearText.setText(sL.getSong(0).getYear());
+			updateStatus("Currently selected: "+nameText.getText());
 		}
 	}
 	
@@ -401,6 +402,7 @@ public class songLib extends JFrame implements ActionListener
 		{	
 			if(!sL.songList.isEmpty()){
 				displaySelected();
+				updateStatus("Currently selected: "+ nameText.getText());
 			}
 			
 		}

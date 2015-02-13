@@ -70,15 +70,14 @@ public class songArrayList{
 			}
 			
 			if(line.length == 4){
+				String album = line[2];
+				song.setAlbum(album);
 				String year = line[3];
 				song.setYear(year);
 			}
 			
 			
 			add(song);
-		}
-		for (int i = 0; i < songList.size(); i++){
-			System.out.println(songList.get(i).getName() + " by " + songList.get(i).getArtist());
 		}
 		
 		sc.close();
