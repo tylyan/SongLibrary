@@ -59,7 +59,6 @@ public class songArrayList{
 			if (line.length == 3){
 				String album = line[2];
 				song.setAlbum(album);
-				
 			}
 			
 			if(line.length == 4){
