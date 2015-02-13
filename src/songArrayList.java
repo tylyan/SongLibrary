@@ -90,14 +90,23 @@ public class songArrayList{
 	
 	public void add(Song s){ //add song to correct location in List (Alphabetized)
 		
-		int i = 0;
+		
+		int i=0;
+		String songName = s.getName().toLowerCase();
+		String songArtist = s.getArtist().toLowerCase();
 		
 		//find index to add
-		for(i=0; i < songList.size(); i++){
-			if (s.getName().toLowerCase().compareTo(songList.get(i).getName().toLowerCase()) <= 0) 
+		for(; i < songList.size(); i++){
+			if (songName.compareTo(songList.get(i).getName().toLowerCase()) < 0){
 				break;
+			}else if(songName.compareTo(songList.get(i).getName().toLowerCase()) == 0){
+				if(songArtist.compareTo(songList.get(i).getArtist().toLowerCase()) < 0){
+					break;
+				}
+			}
+				
 		}
-		//same song name, sort by artist
+		
 		if (songList.isEmpty()){
 			songList.add(s);
 			listModel.add(i, s.getName());
@@ -105,14 +114,13 @@ public class songArrayList{
 		}else if (i == songList.size()){
 			songList.add(s);
 			listModel.add(i, s.getName());
+		}else{
+		
 			
-		}
-		
-		
-		//add song only if not duplicate
-		if(!(s.getArtist().toLowerCase().compareTo(songList.get(i).getArtist().toLowerCase())==0 && s.getName().toLowerCase().compareTo(songList.get(i).getName().toLowerCase())==0)){
-			songList.add(i,s);
-			listModel.add(i, s.getName());
+				songList.add(i,s);
+				listModel.add(i,s.getName());
+			
+			
 		}
 	}
 	

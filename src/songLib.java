@@ -201,6 +201,10 @@ public class songLib extends JFrame implements ActionListener
 			confirmButton.setEnabled(true);
 			cancelButton.setEnabled(true);
 			
+			//disable add/edit/delete
+			addButton.setEnabled(false);
+			editButton.setEnabled(false);
+			deleteButton.setEnabled(false);
 			
 			
 		}else if (e.getActionCommand().equals("Edit")){
@@ -216,12 +220,22 @@ public class songLib extends JFrame implements ActionListener
 			confirmButton.setEnabled(true);
 			cancelButton.setEnabled(true);
 			
+			//disable add/edit/delete
+			addButton.setEnabled(false);
+			editButton.setEnabled(false);
+			deleteButton.setEnabled(false);
+			
 		}else if (e.getActionCommand().equals("Delete")){
 			updateStatus("Press CONFIRM to delete selected song.");
 			action = "delete";
 			//enable confirm/cancel
 			confirmButton.setEnabled(true);
 			cancelButton.setEnabled(true);
+			
+			//disable add/edit/delete
+			addButton.setEnabled(false);
+			editButton.setEnabled(false);
+			deleteButton.setEnabled(false);
 			
 		}else if (e.getActionCommand().equals("Confirm")){
 			//confirm button
@@ -258,7 +272,11 @@ public class songLib extends JFrame implements ActionListener
 				//disable confirm/cancel
 				confirmButton.setEnabled(false);
 				cancelButton.setEnabled(false);
-					
+				
+				//enable add/edit/delete
+				addButton.setEnabled(true);
+				editButton.setEnabled(true);
+				deleteButton.setEnabled(true);	
 					
 			}else if (action.equals("edit")){
 				Song tempSong = new Song(nameText.getText().trim(),artistText.getText().trim(),albumText.getText().trim(),yearText.getText().trim());
@@ -299,6 +317,10 @@ public class songLib extends JFrame implements ActionListener
 				confirmButton.setEnabled(false);
 				cancelButton.setEnabled(false);
 				
+				//enable add/edit/delete
+				addButton.setEnabled(true);
+				editButton.setEnabled(true);
+				deleteButton.setEnabled(true);
 
 				
 			}else if (action.equals("delete")){
@@ -329,6 +351,11 @@ public class songLib extends JFrame implements ActionListener
 				confirmButton.setEnabled(false);
 				cancelButton.setEnabled(false);
 				
+				//enable add/edit/delete
+				addButton.setEnabled(true);
+				editButton.setEnabled(true);
+				deleteButton.setEnabled(true);
+				
 				updateStatus("Song has been successfully deleted!");
 				
 			}
@@ -346,6 +373,12 @@ public class songLib extends JFrame implements ActionListener
 			
 			confirmButton.setEnabled(false);
 			cancelButton.setEnabled(false);
+			
+			//enable add/edit/delete
+			addButton.setEnabled(true);
+			editButton.setEnabled(true);
+			deleteButton.setEnabled(true);
+			
 			updateStatus("Canceled");;
 		}
 		
